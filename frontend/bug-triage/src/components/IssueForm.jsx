@@ -1,122 +1,70 @@
 import { useState } from "react";
 import api from "../services/api";
 
-function IssueForm() {
+function IssueForm({ setResult }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState(null);
   const [error, setError] = useState("");
 
   const handleAnalyze = async () => {
     setLoading(true);
     setError("");
-
     try {
-      const response = await api.post("/analyze", {
-        title,
-        description,
-      });
-
-      setResult(response.data);
+      const response = await api.post("/analyze", { title, description });
+      if (setResult) setResult(response.data);
     } catch (err) {
-      setError("Failed to analyze issue.");
+      setError("Failed to analyze issue. Please try again.");
       console.error(err);
     }
-
     setLoading(false);
   };
 
-  const getComponentIcon = (component) => {
-    switch (component) {
-      case "frontend":
-        return "🎨";
-
-      case "backend":
-        return "🖥";
-
-      case "api":
-        return "⚙";
-
-      case "database":
-        return "🗄";
-
-      case "auth":
-        return "🔐";
-
-      default:
-        return "📦";
-    }
-  };
-
   return (
-    <div className="form-card">
-      <label>Issue Title</label>
+    <div className="section-card form-card">
+      <h2>Describe the Issue</h2>
+      <p className="section-sub">
+        Provide a title and detailed description of the issue.
+      </p>
 
+      <label>Issue Title</label>
       <input
         type="text"
-        placeholder="Enter issue title..."
+        placeholder="e.g. API returns 500 when creating order"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
 
       <label>Description</label>
-
       <textarea
-        rows={7}
-        placeholder="Describe the issue..."
+        rows={5}
+        placeholder="Describe what happened, steps to reproduce, and any error messages..."
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
 
-      <button onClick={handleAnalyze}>
+      <button className="run-btn" onClick={handleAnalyze} disabled={loading}>
         {loading ? "Analyzing..." : "Run Triage"}
       </button>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <p className="error-msg">{error}</p>}
 
-      {result && (
-        <div className="results">
-          <h2>Prediction</h2>
-
-          <div className="prediction-grid">
-            <div className="card">
-              <h3>Priority</h3>
-              <span className={`badge ${result.priority}`}>
-                {result.priority.toUpperCase()}
-              </span>
-            </div>
-            <div className="card">
-              <h3>Component</h3>
-
-              <p className="component-text">
-                {getComponentIcon(result.component)}{" "}
-                {result.component.toUpperCase()}
-              </p>
-            </div>
-          </div>
-
-          <h2>Similar Issues</h2>
-
-          <div className="similar-list">
-            {result.similar_issues.map((issue, index) => (
-              <div className="issue-card" key={index}>
-                <h3>{issue.title}</h3>
-
-                <p>
-                  Similarity:
-                  {(issue.similarity_score * 100).toFixed(1)}%
-                </p>
-
-                <a href={issue.issue_url} target="_blank" rel="noreferrer">
-                  View on GitHub
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+      <p className="secure-note">
+        <svg
+          width="13"
+          height="13"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+        </svg>
+        Your data is secure and never stored.
+      </p>
     </div>
   );
 }

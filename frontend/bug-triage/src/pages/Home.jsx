@@ -1,12 +1,12 @@
-import Header from "../components/Header";
+import Hero from "../components/Hero";
 import IssueForm from "../components/IssueForm";
 
 function Home() {
   return (
-    <div className="container">
-      <Header />
+    <>
+      <Hero />
       <IssueForm />
-    </div>
+    </>
   );
 }
 

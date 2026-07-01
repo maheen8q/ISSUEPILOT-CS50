@@ -1,0 +1,13 @@
+cd backend 
+venv\Scripts\activate
+uvicorn app.main:app --reload
+
+cd frontend
+cd bug-triage
+npm run dev
+
+Test
+Title: Login fails after password reset
+
+Description: After a user resets their password via the email link, subsequent login attempts return a 401 Unauthorized error even with the correct new password. 
+Steps: 1) Request password reset, 2) Click email link, 3) Set new password, 4) Try to log in — fails. Old password also no longer works.

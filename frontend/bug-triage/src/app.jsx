@@ -1,35 +1,28 @@
+import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import IssueForm from "./components/IssueForm";
-import Prediction from "./components/Prediction";
-import SimilarIssues from "./components/SimilarIssues";
 import Footer from "./components/Footer";
 
+import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
+import About from "./pages/About";
+
 function App() {
-  const [result, setResult] = useState(null);
+  const [dark, setDark] = useState(false);
 
   return (
-    <>
-      <Navbar />
+    <div className={`app${dark ? " dark" : ""}`}>
+      <Navbar dark={dark} setDark={setDark} />
 
-      <main className="container">
-        <Hero />
-
-        <IssueForm setResult={setResult} />
-
-        {result && (
-          <>
-            <Prediction result={result} />
-
-            <SimilarIssues issues={result.similar_issues} />
-          </>
-        )}
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
 
       <Footer />
-    </>
+    </div>
   );
 }
 

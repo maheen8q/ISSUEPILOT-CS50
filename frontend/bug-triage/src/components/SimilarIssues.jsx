@@ -1,4 +1,65 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+/* Mini animated ring for similarity score */
+function MiniRing({ percent, size = 56, stroke = 5 }) {
+  const [animated, setAnimated] = useState(0);
+  const r = (size - stroke) / 2;
+  const circ = 2 * Math.PI * r;
+  const offset = circ - (animated / 100) * circ;
+
+  // Color: green ≥70, amber 40–69, red <40
+  const color =
+    animated >= 70 ? "#16a34a" : animated >= 40 ? "#d97706" : "#e03c2e";
+
+  useEffect(() => {
+    const t = setTimeout(() => setAnimated(percent), 80);
+    return () => clearTimeout(t);
+  }, [percent]);
+
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox={`0 0 ${size} ${size}`}
+      style={{ display: "block", flexShrink: 0 }}
+    >
+      <circle
+        cx={size / 2}
+        cy={size / 2}
+        r={r}
+        fill="none"
+        stroke="var(--ring-track, #e8e2da)"
+        strokeWidth={stroke}
+      />
+      <circle
+        cx={size / 2}
+        cy={size / 2}
+        r={r}
+        fill="none"
+        stroke={color}
+        strokeWidth={stroke}
+        strokeLinecap="round"
+        strokeDasharray={circ}
+        strokeDashoffset={offset}
+        transform={`rotate(-90 ${size / 2} ${size / 2})`}
+        style={{
+          transition: "stroke-dashoffset 0.85s cubic-bezier(.4,0,.2,1)",
+        }}
+      />
+      <text
+        x="50%"
+        y="50%"
+        dominantBaseline="central"
+        textAnchor="middle"
+        fontSize={size * 0.22}
+        fontWeight="700"
+        fill="var(--text-primary, #1a1210)"
+      >
+        {Math.round(animated)}%
+      </text>
+    </svg>
+  );
+}
 
 function SimilarIssues({ issues }) {
   const [showAll, setShowAll] = useState(false);
@@ -28,14 +89,8 @@ function SimilarIssues({ issues }) {
                 </svg>
                 {issue.repo || "View on GitHub"}
               </div>
-            </div>
-            <div className="issue-right">
-              <div className="sim-label">Similarity</div>
-              <div className="sim-score">
-                {(issue.similarity_score * 100).toFixed(0)}%
-              </div>
               <a
-                className="gh-link"
+                className="gh-link gh-link--left"
                 href={issue.issue_url}
                 target="_blank"
                 rel="noreferrer"
@@ -56,6 +111,12 @@ function SimilarIssues({ issues }) {
                   <line x1="10" y1="14" x2="21" y2="3" />
                 </svg>
               </a>
+            </div>
+
+            {/* Similarity ring replaces the old text score */}
+            <div className="issue-right issue-right--ring">
+              <div className="sim-label">Similarity</div>
+              <MiniRing percent={issue.similarity_score * 100} />
             </div>
           </div>
         ))}

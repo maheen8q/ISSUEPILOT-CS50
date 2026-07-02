@@ -1,15 +1,27 @@
+import { useState, useCallback } from "react";
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import SplashScreen from "./components/SplashScreen";
 
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
 
 function App() {
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(true);
+  const [showSplash, setShowSplash] = useState(true);
+
+  const handleSplashDone = useCallback(() => setShowSplash(false), []);
+
+  if (showSplash) {
+    return (
+      <div className={dark ? "dark" : ""}>
+        <SplashScreen onDone={handleSplashDone} />
+      </div>
+    );
+  }
 
   return (
     <div className={`app${dark ? " dark" : ""}`}>

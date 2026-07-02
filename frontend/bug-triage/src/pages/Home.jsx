@@ -10,13 +10,11 @@ function Home() {
   const [animKey, setAnimKey] = useState(0);
   const resultsRef = useRef(null);
 
-  // Every time a new result arrives, bump the key so the animation re-fires
   const handleResult = (data) => {
     setResult(data);
     setAnimKey((k) => k + 1);
   };
 
-  // Smoothly scroll results into view after they appear
   useEffect(() => {
     if (result && resultsRef.current) {
       setTimeout(() => {
@@ -29,7 +27,7 @@ function Home() {
   }, [animKey]);
 
   return (
-    <main className="container">
+    <main className="container page-enter">
       <Hero />
 
       <IssueForm setResult={handleResult} />

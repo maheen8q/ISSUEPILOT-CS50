@@ -27,17 +27,27 @@ function About() {
 
   if (!about || !health || !model) {
     return (
-      <main className="container">
-        <h1>Loading...</h1>
+      <main className="container page-enter">
+        <div className="skeleton skeleton-title" />
+        <div className="skeleton skeleton-subtitle" />
+        <div className="about-grid">
+          {[...Array(3)].map((_, i) => (
+            <div key={i} className="info-card">
+              <div className="skeleton skeleton-card-heading" />
+              {[...Array(4)].map((_, j) => (
+                <div key={j} className="skeleton skeleton-line" />
+              ))}
+            </div>
+          ))}
+        </div>
       </main>
     );
   }
 
   return (
-    <main className="container">
+    <main className="container page-enter">
       <section className="about-header">
         <h1>About IssuePilot</h1>
-
         <p>
           AI-powered bug triage system that predicts issue priority, identifies
           affected components, and retrieves similar GitHub issues.

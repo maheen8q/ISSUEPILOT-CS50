@@ -1,16 +1,18 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Navbar({ dark, setDark }) {
   return (
     <nav className="navbar">
-      <Link to="/" className="logo">
+      <NavLink to="/" className="logo">
         Issue<span>Pilot</span>
-      </Link>
+      </NavLink>
 
       <div className="nav-links">
-        <Link to="/">Home</Link>
-        <Link to="/dashboard">Dashboard</Link>
-        <Link to="/about">About</Link>
+        <NavLink to="/" end>
+          Home
+        </NavLink>
+        <NavLink to="/dashboard">Dashboard</NavLink>
+        <NavLink to="/about">About</NavLink>
       </div>
 
       <button
@@ -20,7 +22,6 @@ function Navbar({ dark, setDark }) {
         title={dark ? "Switch to light mode" : "Switch to dark mode"}
       >
         {dark ? (
-          /* Sun icon */
           <svg
             width="16"
             height="16"
@@ -42,7 +43,6 @@ function Navbar({ dark, setDark }) {
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
           </svg>
         ) : (
-          /* Moon icon */
           <svg
             width="16"
             height="16"

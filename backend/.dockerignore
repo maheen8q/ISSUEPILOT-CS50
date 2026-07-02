@@ -1,0 +1,33 @@
+# Python
+venv/
+__pycache__/
+*.py[cod]
+
+# Environment
+.env
+
+# Git
+.git
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Jupyter
+*.ipynb
+.ipynb_checkpoints/
+
+# Large datasets (don't ship these)
+ML/data/
+
+# Training notebooks
+ML/notebooks/
+
+# Training artifacts you don't need
+ML/data/github_issues.csv
+ML/data/cleaned_issues_sample.csv
+ML/data/issuepilot_labeled_sample.csv

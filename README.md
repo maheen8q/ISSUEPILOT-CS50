@@ -22,7 +22,7 @@ IssuePilot was built to explore how machine learning can automate part of this w
 * Retrieve similar historical issues using text similarity.
 * View project statistics through a dashboard.
 * Learn how the prediction system works through the About page.
-* Fully deployed using Railway (backend) and Vercel (frontend).
+* Fully deployed using Render (backend) and Vercel (frontend).
 
 ---
 
@@ -120,7 +120,7 @@ Routing is handled using React Router.
 ### Deployment
 
 * Vercel (Frontend)
-* Railway (Backend)
+* Render (Backend)
 
 ---
 
@@ -185,7 +185,7 @@ https://issue-pilot-bug-triage.vercel.app
 
 **Backend API**
 
-https://issue-pilot-bug-triage-production.up.railway.app
+https://issue-pilot-bug-triage.onrender.com
 
 ---
 

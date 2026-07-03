@@ -1,3 +1,7 @@
+<img width="1920" height="946" alt="image" src="https://github.com/user-attachments/assets/b7e2832f-9403-41fd-b826-ebfc66692ac7" />
+<img width="1920" height="953" alt="image" src="https://github.com/user-attachments/assets/5e3ea568-b036-4d69-993e-1beb68a9e7e4" />
+<img width="1920" height="953" alt="image" src="https://github.com/user-attachments/assets/3c5449b8-8179-4f41-bd14-e78fd95b14ee" />
+<img width="1920" height="953" alt="image" src="https://github.com/user-attachments/assets/559aec8a-1f85-4fcc-8227-a5ffec74459b" />
 #  IssuePilot
 
 IssuePilot is an AI-powered bug triage system built to simplify the early stages of software issue management. Instead of manually reading every bug report, the application analyzes an issue description and predicts its priority, identifies the most relevant software component, and recommends similar issues from a historical dataset.
@@ -204,6 +208,12 @@ https://issue-pilot-bug-triage.onrender.com
 
 **Maheen Ul Muslim**
 
+
 GitHub: https://github.com/maheen8q
 
 LinkedIn: www.linkedin.com/in/maheen-ul-muslim-463b8135a
+
+<img width="1920" height="946" alt="image" src="https://github.com/user-attachments/assets/f6f9f127-093a-40ca-bbba-83cc182ecfe3" />
+<img width="1917" height="939" alt="image" src="https://github.com/user-attachments/assets/569b9632-263c-4ce1-a683-7687f40b4321" />
+<img width="1920" height="953" alt="image" src="https://github.com/user-attachments/assets/10e59ae9-81a1-42d6-89f1-dc3f99a82ca7" />
+<img width="1920" height="953" alt="image" src="https://github.com/user-attachments/assets/ed3ca4f0-9805-4679-9f9c-01db514eb046" />

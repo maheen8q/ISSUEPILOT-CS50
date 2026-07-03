@@ -4,9 +4,9 @@
 <img width="1920" height="953" alt="image" src="https://github.com/user-attachments/assets/559aec8a-1f85-4fcc-8227-a5ffec74459b" />
 #  IssuePilot
 
-IssuePilot is an AI-powered bug triage system built to simplify the early stages of software issue management. Instead of manually reading every bug report, the application analyzes an issue description and predicts its priority, identifies the most relevant software component, and recommends similar issues from a historical dataset.
+IssuePilot is an AI-powered bug triage system built to simplify the initial stages of software issue management. Given a bug report, the application analyzes its description, predicts its priority, identifies the most relevant software component, and retrieves similar historical issues using machine learning.
 
-The project combines machine learning models with a FastAPI backend and a React frontend to provide a complete end-to-end application that can be used through a simple web interface.
+The project combines multiple machine learning models with a FastAPI backend and a React frontend to provide a complete end-to-end application. The backend is containerized using Docker for consistent deployment and is hosted on Railway, while the frontend is deployed on Vercel.
 
 ---
 
@@ -121,10 +121,11 @@ Routing is handled using React Router.
 * Logistic Regression
 * Cosine Similarity
 
-### Deployment
-
-* Vercel (Frontend)
-* Render (Backend)
+### DevOps & Deployment
+- Docker
+- Git & GitHub
+- Render
+- Vercel
 
 ---
 

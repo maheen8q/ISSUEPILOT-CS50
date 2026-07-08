@@ -1,7 +1,6 @@
 # IssuePilot: AI-Powered Bug Triage Assistant
 
-#### Video Demo: [https://youtu.be/YOUR_VIDEO_LINK_HERE](https://youtu.be/KJ0WP60nwgo?si=bYw7j2rZwxR0eJu8)
-
+#### Video Demo: https://youtu.be/KJ0WP60nwgo?si=bYw7j2rZwxR0eJu8
 #### Description:
 
 IssuePilot is an AI-powered web application designed to assist software developers and teams in triaging bug reports efficiently. The application analyzes a bug report's title and description using machine learning models to predict its priority, suggest the most relevant software component, and retrieve similar issues from a historical dataset. The goal of the project is to reduce the manual effort involved in categorizing incoming issues while providing developers with useful context from previously reported bugs.

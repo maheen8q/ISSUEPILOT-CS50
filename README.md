@@ -1,6 +1,6 @@
 # IssuePilot: AI-Powered Bug Triage Assistant
 
-#### Video Demo: https://youtu.be/YOUR_VIDEO_LINK_HERE
+#### Video Demo: [https://youtu.be/YOUR_VIDEO_LINK_HERE](https://youtu.be/KJ0WP60nwgo?si=bYw7j2rZwxR0eJu8)
 
 #### Description:
 
